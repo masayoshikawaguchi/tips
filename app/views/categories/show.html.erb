@@ -1,0 +1,28 @@
+<h1><%= @category.content %></h1>
+<ul class="media-list">
+  <% @microposts.each do |micropost| %>
+    <li class="media">
+      <div class="media-left">
+        <img class="media-object img-rounded" src="<%= gravatar_url(micropost.user, options = { size: 50 }) %>" alt="">
+        <%= link_to micropost.user.name, user_path(micropost.user) %>
+      </div>
+      <div class="media-body">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+          <span class="text-dark"><%= micropost.created_at %></span> 
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div>
+              <p><%= micropost.content %></p>
+              <!--like拡張機能-->
+              <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes } %>
+          </div>
+        </div>
+      </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate @microposts %>
+</ul>

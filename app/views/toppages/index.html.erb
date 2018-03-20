@@ -10,3 +10,23 @@
     </div>
   </div>
 <% end %>
+
+<div class="row">
+  <div class="col-sm-5">
+    <%= render partial: 'microposts/micropost', locals: { micropost: @micropost, microposts: @microposts, likes: @likes} %>
+  </div>
+  <div class="col-sm-offset-2 col-sm-5">
+    <h1>カテゴリー</h1>
+    <ul class="media-list">
+    <% @categories.each do |category| %>
+      <li class="media">
+        <div class="media-body">
+          <div class="alert alert-info" role="alert">
+            <%= link_to category.content, category_path(category) %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>

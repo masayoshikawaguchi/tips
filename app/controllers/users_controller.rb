@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @trivians = @user.trivians.order('created_at DESC').page(params[:page])
+    @microposts = @user.microposts.order('created_at DESC').page(params[:page])
     @likes = Like.where(trivian_id: params[:trivian_id])
   end
 
