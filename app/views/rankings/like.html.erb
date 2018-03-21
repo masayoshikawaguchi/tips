@@ -1,0 +1,12 @@
+<div class="alert alert-info" role="alert"><h1>いいねランキング</h1></div>
+    <% @rank.each.with_index(1) do |rank,i| %>
+     <h2><%= "第#{i}位" %> <span class="glyphicon glyphicon-heart"></span><%= rank.likes_count %></h2>
+     <div class="panel panel-primary">
+         <div class="panel-heading">
+             <h3 class="panel-title"><%=link_to rank.category.content, category_path(rank.category) %> by <%=link_to rank.user.name, user_path(rank.user) %></h3>
+         </div>
+         <div class="panel-body">
+           <%= rank.content %> 
+         </div>
+     </div>
+    <% end %>

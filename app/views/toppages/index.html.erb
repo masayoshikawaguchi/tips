@@ -11,6 +11,7 @@
   </div>
 <% end %>
 
+<% if logged_in? %>
 <div class="row">
   <div class="col-sm-5">
     <%= render partial: 'microposts/micropost', locals: { micropost: @micropost, microposts: @microposts, likes: @likes} %>
@@ -30,3 +31,4 @@
     </ul>
   </div>
 </div>
+<% end %>
