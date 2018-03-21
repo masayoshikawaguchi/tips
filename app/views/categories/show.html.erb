@@ -17,7 +17,9 @@
           <div>
               <p><%= micropost.content %></p>
               <!--like拡張機能-->
+              <span id="like-of-<%= micropost.id %>">
               <%= render partial: 'likes/like', locals: { micropost: micropost, likes: @likes } %>
+              </span>
           </div>
         </div>
       </div>
